@@ -3,15 +3,15 @@
 ##   Copyright (C) 2001 Matthew Allum
 ##
 ##   This program is free software; you can redistribute it and/or modify
-##   it under the terms of the GNU General Public License as published by
-##   the Free Software Foundation; either version 2, or (at your option)
+##   it under the terms of the GNU Lesser General Public License as published
+##   by the Free Software Foundation; either version 2, or (at your option)
 ##   any later version.
 ##
 ##   This program is distributed in the hope that it will be useful,
 ##   but WITHOUT ANY WARRANTY; without even the implied warranty of
 ##   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##   GNU General Public License for more details.
-##
+##   GNU Lesser General Public License for more details.
+
 
 """\
 xmlstream.py provides simple functionality for implementing
@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.10 2002/01/08 13:13:37 mallum Exp $
+# $Id: xmlstream.py,v 1.11 2002/01/11 00:40:43 mallum Exp $
 
 import xmllib, time, sys, re, site
 from socket import socket, AF_INET, SOCK_STREAM
