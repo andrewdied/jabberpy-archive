@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.22 2002/06/08 15:42:52 mallum Exp $
+# $Id: xmlstream.py,v 1.23 2002/06/10 08:33:18 mallum Exp $
 
 import site
 site.encoding = 'UTF-8'
@@ -126,7 +126,7 @@ class Node:
 
     def getData(self):
         "Return the nodes textual data" 
-        return join(self.data)
+        return join(self.data, '')
 
     def getDataAsParts(self):
         "Return the node data as an array" 
