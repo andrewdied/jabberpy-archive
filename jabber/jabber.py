@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.57 2004/01/16 14:11:37 snakeru Exp $
+# $Id: jabber.py,v 1.58 2004/01/18 05:27:10 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -1308,7 +1308,11 @@ class Roster:
 class JID:
     """A Simple class for managing jabber users id's """
     def __init__(self, jid='', node='', domain='', resource=''):
-        if jid:
+        if type(jid)==type(self):
+            self.node = jid.node
+            self.domain = jid.domain
+            self.resource = jid.resource
+        elif jid:
             if jid.find('@') == -1:
                 self.node = ''
             else:
