@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.33 2003/11/08 20:57:34 snakeru Exp $
+# $Id: xmlstream.py,v 1.34 2003/11/20 06:10:01 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -376,7 +376,7 @@ class Stream(NodeBuilder):
             self.DEBUG("xmlstream write threw error",DBG_CONN_ERROR)
             self.disconnected()
             
-    def process(self,timeout):
+    def process(self, timeout=0):
         """Receives incoming data (if any) and processes it.
            Waits for data no more than timeout seconds."""
         if select([self._reader],[],[],timeout)[0]:
