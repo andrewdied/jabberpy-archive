@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.45 2003/11/29 05:46:45 snakeru Exp $
+# $Id: jabber.py,v 1.46 2003/11/30 15:49:05 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -348,7 +348,7 @@ class Connection(xmlstream.Client):
            self.lastErrCode will be set to the error which caused the
            disconnection, if any.
         """
-        self.disconnected = func
+        self.disconnectHandler = func
 
     ## functions for sending element with ID's ##
 
