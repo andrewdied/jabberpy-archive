@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.56 2004/01/08 15:48:59 snakeru Exp $
+# $Id: jabber.py,v 1.57 2004/01/16 14:11:37 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -803,7 +803,7 @@ class Protocol(xmlstream.Node):
     def getX(self,index=0):
         """Returns the x namespace, optionally passed an index if there are
            multiple tags."""
-        try: return self.getXNodes('x')[index].namespace
+        try: return self.getXNodes()[index].namespace
         except: return None
 
 
