@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.52 2003/12/20 09:31:46 snakeru Exp $
+# $Id: jabber.py,v 1.53 2003/12/24 05:42:09 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -954,7 +954,7 @@ class Message(Protocol):
         self.time_stamp = val
 
 
-    def build_reply(self, reply_txt=''):
+    def buildReply(self, reply_txt=''):
         """Returns a new Message object as a reply to itself.
            The reply message has the 'to', 'type' and 'thread' attributes
            automatically set."""
@@ -964,6 +964,10 @@ class Message(Protocol):
         t = self.getThread()
         if t: m.setThread(t)
         return m
+
+    def build_reply(self, reply_txt=''):
+        print "WARNING: build_reply method is obsolette. Use buildReply instead."
+        return self.buildReply(reply_txt)
 
 #############################################################################
 
