@@ -28,13 +28,15 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.1 2001/08/29 15:52:39 mallum Exp $
+# $Id: xmlstream.py,v 1.2 2001/09/08 17:09:39 mallum Exp $
 
 import xmllib, time, sys, re
 import socket
 from select import select
 from string import split,find,replace
 import xml.parsers.expat
+
+VERSION = 0.2
 
 False = 0;
 True  = 1;
