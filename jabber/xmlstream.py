@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.5 2001/10/03 23:09:18 mallum Exp $
+# $Id: xmlstream.py,v 1.6 2001/11/07 14:07:11 mallum Exp $
 
 import xmllib, time, sys, re
 from socket import socket, AF_INET, SOCK_STREAM
@@ -166,12 +166,21 @@ class Node:
         return s
 
     def getTag(self, name):
-        """Returns a child node with tag name name. Returns None
+        """Returns a child node with tag name. Returns None
         if not found."""
         for node in self.kids:
             if node.getName() == name:
                return node
         return None
+
+    def getTags(self, name):
+        """Like getTag but returns a list with matching child nodes"""
+        nodes=[]
+        for node in self.kids:
+            if node.getName() == name:
+               nodes.append(node)
+        return nodes
+        
 
     def getChildren(self):
         """Returns a nodes children"""
