@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/python
 """
 jrpc demonstrates extending an iq with the QueryPayload methods.
 
@@ -10,7 +10,7 @@ For more info on this technique see http://www.pipetree.com/jabber/jrpc.html
 mallum <breakfast@10.am>
 """
 
-# $Id: jrpc.py,v 1.4 2001/09/08 17:09:39 mallum Exp $
+# $Id: jrpc.py,v 1.5 2002/01/13 22:39:42 mallum Exp $
 
 import sys
 
@@ -69,9 +69,9 @@ else:
     print "Connected"
 
 ## Attatch the above iq callback
-con.setIqHandler(iq_CB)
-con.setIqHandler(iq_error_CB, type='error')
-con.setIqHandler(iq_xmlrpc_response_CB, type='get', ns='jabber:iq:rpc')
+con.registerHandler('iq',iq_CB)
+con.registerHandler('iq',iq_error_CB, type='error')
+con.registerHandler('iq',iq_xmlrpc_response_CB, type='get', ns='jabber:iq:rpc')
 
 ## Authenticate
 if con.auth(Username,Password,Resource):
