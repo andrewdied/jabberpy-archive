@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-# $Id: test_client.py,v 1.3 2001/08/29 15:52:39 mallum Exp $
+# $Id: test_client.py,v 1.4 2001/09/08 17:09:39 mallum Exp $
 
 # You may need to change the above line to point at
 # python rather than python2 depending on your os/distro
@@ -182,7 +182,7 @@ Password = ''
 Resource = 'default'
 
 
-con = jabber.Client(host=Server,debug=False ,log=False) #log=sys.stderr)
+con = jabber.Client(host=Server,debug=True ,log=sys.stderr)
 try:
     con.connect()
 except IOError, e:
