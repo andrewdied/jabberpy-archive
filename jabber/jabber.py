@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.47 2003/12/01 19:09:26 snakeru Exp $
+# $Id: jabber.py,v 1.48 2003/12/04 19:01:37 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -270,12 +270,12 @@ class Connection(xmlstream.Client):
             ns=stanza.getQuery()
             if not ns: ns=''
         except: ns=''
+        self.DEBUG("dispatch called for: name->%s ns->%s"%(name,ns),DBG_DISPATCH)
+
         typns=typ+ns
         if not self.handlers[name].has_key(ns): ns=''
         if not self.handlers[name].has_key(typ): typ=''
         if not self.handlers[name].has_key(typns): typns=''
-
-        self.DEBUG("dispatch called for: name->%s ns->%s"%(name,ns),DBG_DISPATCH)
 
         chain=[]
         for key in ['default',typ,ns,typns]: # we will use all handlers: from very common to very particular
