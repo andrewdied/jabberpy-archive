@@ -75,7 +75,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.16 2001/12/12 12:06:19 mallum Exp $
+# $Id: jabber.py,v 1.17 2002/01/08 10:24:44 mallum Exp $
 
 import xmlstream
 import sha, time
@@ -1019,7 +1019,6 @@ class Roster:
         to_ret = {}
         for jid in self._data.keys():
             to_ret[jid] = self._data[jid]['online']
-        print "hello", to_ret
         return to_ret
 
     def getJIDs(self):

@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.9 2002/01/08 10:24:44 mallum Exp $
+# $Id: xmlstream.py,v 1.10 2002/01/08 13:13:37 mallum Exp $
 
 import xmllib, time, sys, re, site
 from socket import socket, AF_INET, SOCK_STREAM
@@ -342,9 +342,6 @@ class Stream:
         padding = padding * depth
         depth = depth + 1
         for n in nodes:
-            print padding + "name => " + n.name
-            print padding + "attrs => " , n.attrs
-            print padding + "data  => " , n.data
             if n.kids != None:
                 self.dispatch(n.kids, depth)
                 
