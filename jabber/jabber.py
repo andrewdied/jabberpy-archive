@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.58 2004/01/18 05:27:10 snakeru Exp $
+# $Id: jabber.py,v 1.59 2004/04/25 18:03:46 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -275,7 +275,7 @@ class Connection(xmlstream.Client):
         typns=typ+ns
         if not self.handlers[name].has_key(ns): ns=''
         if not self.handlers[name].has_key(typ): typ=''
-        if not self.handlers[name].has_key(typns): typns=''
+        if typ and ns and not self.handlers[name].has_key(typns): typns=''
 
         chain=[]
         for key in ['default',typ,ns,typns]: # we will use all handlers: from very common to very particular
