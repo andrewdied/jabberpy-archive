@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.40 2003/12/12 05:31:47 snakeru Exp $
+# $Id: xmlstream.py,v 1.41 2003/12/12 05:51:40 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -365,7 +365,7 @@ class Stream(NodeBuilder):
             raw_data = unicode(raw_data,ENCODING)
         data_out = raw_data.encode('utf-8')
         try:
-            self._write(raw_data)
+            self._write(data_out)
             self.log(data_out, 'SENT:')
             self.DEBUG("sent %s" % data_out,DBG_XML_RAW)
         except:
