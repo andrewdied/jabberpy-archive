@@ -61,7 +61,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.7 2001/11/07 14:07:11 mallum Exp $
+# $Id: jabber.py,v 1.8 2001/11/09 10:37:41 mallum Exp $
 
 import xmlstream
 import sha
@@ -1102,7 +1102,7 @@ class JID:
     def setDomain(self,val):
         """Sets JID domain from string"""
         self.domain = val
-    def getResource(self,val):
+    def setResource(self,val):
         """Sets JID resource from string"""
         self.resource = val
 
