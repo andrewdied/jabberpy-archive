@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.20 2002/01/13 18:40:54 mallum Exp $
+# $Id: jabber.py,v 1.21 2002/01/14 21:43:17 mallum Exp $
 
 import xmlstream
 import sha, time
@@ -514,6 +514,7 @@ class Client(Connection):
         else:
            self.lastErr     = iq_result.getError()
            self.lastErrCode = iq_result.getErrorCode()
+           # raise error(iq_result.getError()) ?
            return False
 
     ## Roster 'helper' func's - also see the Roster class ##

@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.15 2002/01/14 21:31:02 mallum Exp $
+# $Id: xmlstream.py,v 1.16 2002/01/14 21:43:17 mallum Exp $
 
 import xmllib, time, sys, re, site, socket
 from select import select
@@ -439,6 +439,7 @@ class Stream:
         for s in ready_for_read:
             if s == reader:
                 if not len(self.read()): # length of 0 means disconnect
+                    ## raise error("network error") ?
                     self.disconnected()
                     return False
                 return True
