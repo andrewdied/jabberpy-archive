@@ -61,7 +61,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.6 2001/10/28 01:09:21 mallum Exp $
+# $Id: jabber.py,v 1.7 2001/11/07 14:07:11 mallum Exp $
 
 import xmlstream
 import sha
@@ -867,8 +867,10 @@ class Iq(Protocol):
         if err:
             err.putData(val)
         else:
-            err = self._node.insertTag('error').putData(val)
-        err.setAttr('code',str(code))
+            err = self._node.insertTag('error')
+            err.putData(val)
+        err.putAttr('code',str(code))
+
 
     def getQuery(self):
         "returns the query namespace"
