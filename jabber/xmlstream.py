@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.32 2003/11/08 06:44:22 snakeru Exp $
+# $Id: xmlstream.py,v 1.33 2003/11/08 20:57:34 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -349,7 +349,9 @@ class Stream(NodeBuilder):
         except: received = ''
 
         while select([self._reader],[],[],0)[0]:
-            received += self._read(BLOCK_SIZE)
+            add = self._read(BLOCK_SIZE)
+            received +=add
+            if not add: break
 
         if len(received): # length of 0 means disconnect
             self.DEBUG("got data " + received , DBG_XML_RAW )
