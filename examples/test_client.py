@@ -1,6 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
-# $Id: test_client.py,v 1.8 2002/01/14 21:31:03 mallum Exp $
+# $Id: test_client.py,v 1.9 2002/01/17 12:05:40 mallum Exp $
 
 # You may need to change the above line to point at
 # python rather than python2 depending on your os/distro
