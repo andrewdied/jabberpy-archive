@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.23 2002/01/20 09:43:58 mallum Exp $
+# $Id: jabber.py,v 1.24 2002/01/21 10:34:20 mallum Exp $
 
 import xmlstream
 import sha, time
@@ -943,7 +943,7 @@ class Iq(Protocol):
         try: return self._node.getTag('query')
         except: return None
 
-    def setQueryNode(self):
+    def setQueryNode(self, val):
         """Sets textual data contained by the query tag"""
         q = self._node.getTag('query')
         if q:
