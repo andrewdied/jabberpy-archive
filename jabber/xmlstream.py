@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.16 2002/01/14 21:43:17 mallum Exp $
+# $Id: xmlstream.py,v 1.17 2002/01/17 12:05:40 mallum Exp $
 
 import xmllib, time, sys, re, site, socket
 from select import select
@@ -118,15 +118,15 @@ class Node:
         
     def putData(self, data):
         "Set the nodes textual data" 
-        self.data.append(XMLescape(data))
+        self.data.append(data)
 
     def insertData(self, data):
         "Set the nodes textual data" 
-        self.data.append(XMLescape(data))
+        self.data.append(data)
 
     def getData(self):
         "Return the nodes textual data" 
-        return XMLunescape(join(self.data))
+        return self.data
 
     def getDataAsParts(self):
         "Return the node data as an array" 
