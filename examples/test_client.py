@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-# $Id: test_client.py,v 1.6 2001/11/14 00:07:17 mallum Exp $
+# $Id: test_client.py,v 1.7 2002/01/11 00:40:43 mallum Exp $
 
 # You may need to change the above line to point at
 # python rather than python2 depending on your os/distro
@@ -12,7 +12,7 @@ import sys,os
 
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 
-import jabber
+import jabber,xmlstream
 
 True = 1
 False = 0
@@ -183,7 +183,9 @@ Password = ''
 Resource = 'default'
 
 
-con = jabber.Client(host=Server,debug=True ,log=sys.stderr)
+#con = jabber.Client(host=Server,debug=True ,log=sys.stderr)
+con = jabber.Client(host=Server,debug=True ,log=sys.stderr,
+                    port=5223, connection=xmlstream.TCP_SSL)
 try:
     con.connect()
 except IOError, e:
