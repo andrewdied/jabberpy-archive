@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.48 2003/12/04 19:01:37 snakeru Exp $
+# $Id: jabber.py,v 1.49 2003/12/06 16:10:37 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -720,11 +720,10 @@ class Protocol(xmlstream.Node):
     """Base class for jabber 'protocol elements' - messages, presences and iqs.
        Implements methods that are common to all these"""
     def __init__(self, name=None, to=None, type=None, attrs=None, frm=None, payload=[], node=None):
-        if to or frm or type:
-            if not attrs: attrs={}
-            if to: attrs['to']=to
-            if frm: attrs['from']=frm
-            if type: attrs['type']=type
+        if not attrs: attrs={}
+        if to: attrs['to']=to
+        if frm: attrs['from']=frm
+        if type: attrs['type']=type
         self._node=self
         xmlstream.Node.__init__(self, tag=name, attrs=attrs, payload=payload, node=node)
 
