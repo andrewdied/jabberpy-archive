@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.62 2004/10/05 05:15:46 snakeru Exp $
+# $Id: jabber.py,v 1.63 2004/10/07 04:16:23 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -718,7 +718,7 @@ class Client(Connection):
             elif i.getName()=='feature': features.append(i.getAttr('var'))
         return identities, features
 
-    def browseAgent(self,jid,node=None):
+    def browseAgents(self,jid,node=None):
         identities, features, items = [], [], []
         iq=Iq(to=jid,type='get',query=NS_BROWSE)
         rep=self.SendAndWaitForResponse(iq)
