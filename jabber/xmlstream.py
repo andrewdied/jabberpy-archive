@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.35 2003/11/22 07:18:29 snakeru Exp $
+# $Id: xmlstream.py,v 1.36 2003/11/23 11:29:31 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -37,7 +37,7 @@ import xml.parsers.expat
 import debug
 _debug=debug
 
-VERSION = "0.5-pre2+"
+VERSION = "0.5-rc1"
 
 False = 0
 True  = 1
