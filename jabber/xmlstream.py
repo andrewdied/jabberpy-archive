@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.39 2003/12/06 16:08:57 snakeru Exp $
+# $Id: xmlstream.py,v 1.40 2003/12/12 05:31:47 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -384,6 +384,7 @@ class Stream(NodeBuilder):
     def disconnect(self):
         """Close the stream and socket"""
         self.write ( u"</stream:stream>" )
+        while self.process(): pass
         self._sock.close()
         self._sock = None
         

@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.49 2003/12/06 16:10:37 snakeru Exp $
+# $Id: jabber.py,v 1.50 2003/12/12 05:31:47 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -429,7 +429,6 @@ class Client(Connection):
     def disconnect(self):
         """Safely disconnects from the connected server"""
         self.send(Presence(type='unavailable'))
-        while self.process(): pass
         xmlstream.Client.disconnect(self)
 
     def sendPresence(self,type=None,priority=None,show=None,status=None):
