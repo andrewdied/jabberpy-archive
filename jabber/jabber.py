@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.51 2003/12/12 05:51:40 snakeru Exp $
+# $Id: jabber.py,v 1.52 2003/12/20 09:31:46 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -249,7 +249,7 @@ class Connection(xmlstream.Client):
         if iq_obj.getAttr('id') and \
            self._expected.has_key(iq_obj.getAttr('id')):
             self._expected[iq_obj.getAttr('id')] = iq_obj
-        raise NodeProcessed('No need for further Iq processing.')
+            raise NodeProcessed('No need for further Iq processing.')
 
     def dispatch(self,stanza):
         """Called internally when a 'protocol element' is received.
