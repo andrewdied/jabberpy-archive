@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.14 2002/01/13 18:40:54 mallum Exp $
+# $Id: xmlstream.py,v 1.15 2002/01/14 21:31:02 mallum Exp $
 
 import xmllib, time, sys, re, site, socket
 from select import select
@@ -478,8 +478,9 @@ class Client(Stream):
     def connect(self):
         """Attempt to connect to specified host"""
 
-        self.DEBUG("client connect called to %s %s" % (self._host,
-                                                       self._port) )
+        self.DEBUG("client connect called to %s %s type %i" % (self._host,
+                                                               self._port,
+                                                               self._connection) )
 
         ## TODO: check below that stdin/stdout are actually open
         if self._connection == STDIO: return

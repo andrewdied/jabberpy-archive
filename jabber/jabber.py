@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.19 2002/01/11 16:52:14 mallum Exp $
+# $Id: jabber.py,v 1.20 2002/01/13 18:40:54 mallum Exp $
 
 import xmlstream
 import sha, time
@@ -345,8 +345,8 @@ class Client(Connection):
         self._reg_info = {}
         self._reg_agent = ''
 
-        xmlstream.Client.__init__(self, host, port,
-                                  'jabber:client', debug, log)
+        #xmlstream.Client.__init__(self, host, port,
+        #                          'jabber:client', debug, log)
 
     def connect(self):
         """Attempts to connect to the specified jabber server.
