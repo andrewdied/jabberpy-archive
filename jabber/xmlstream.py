@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.6 2001/11/07 14:07:11 mallum Exp $
+# $Id: xmlstream.py,v 1.7 2001/12/10 21:33:29 mallum Exp $
 
 import xmllib, time, sys, re
 from socket import socket, AF_INET, SOCK_STREAM
@@ -285,7 +285,7 @@ class Stream:
 
     def header(self):    
         self.DEBUG("stream: sending initial header")
-        str = u"<?xml version='1.0' ?>                \
+        str = u"<?xml version='1.0' encoding='UTF-8' ?>   \
                 <stream:stream to='%s' xmlns='%s'" % ( self._host,
                                                        self._namespace )
         
@@ -345,24 +345,24 @@ class Stream:
 
     def read(self):
         """Reads incoming data. Called by process() so nonblocking"""
-        data = u''
-        data_in = u'' # maybe this will fix encoding errors ...
+        data = unicode('','utf8')
+        data_in = unicode('','utf8')
         if self._connection == TCP:
-            data_in = data_in + self._sock.recv(1024)
+            data_in = data_in + unicode(self._sock.recv(1024),'utf-8')
             while data_in:
                 data = data + data_in
                 if len(data_in) != 1024:
                     break
-                data_in = self._sock.recv(1024)
+                data_in = unicode(self._sock.recv(1024),'utf-8')
                 
         elif self._connection == STDIO:
             ## Hope this dont buffer !
-            data_in = data_in + sys.stdin.read(1024)
+            data_in = data_in + unicode(sys.stdin.read(1024),'utf-8')
             while data_in:
                 data = data + data_in
                 if len(data_in) != 1024:
                     break
-                data_in = sys.stdin.read(1024)
+                data_in = unicode(sys.stdin.read(1024),'utf-8')
         else:
             pass # should never get here
             
