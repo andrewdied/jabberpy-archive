@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.4 2001/09/22 00:29:29 mallum Exp $
+# $Id: xmlstream.py,v 1.5 2001/10/03 23:09:18 mallum Exp $
 
 import xmllib, time, sys, re
 from socket import socket, AF_INET, SOCK_STREAM
@@ -283,7 +283,7 @@ class Stream:
         if self._outgoingID: str = str + " id='%s' " % self._outgoingID 
         str = str + " xmlns:stream='http://etherx.jabber.org/streams'>"
         self.write (str)
-        #self.read()
+        self.read()
 
     def _handle_data(self, data):
         """XML Parser callback"""
