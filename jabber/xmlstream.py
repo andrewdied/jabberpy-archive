@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.21 2002/05/29 02:28:38 ewestra Exp $
+# $Id: xmlstream.py,v 1.22 2002/06/08 15:42:52 mallum Exp $
 
 import site
 site.encoding = 'UTF-8'
@@ -61,9 +61,9 @@ def XMLescape(txt):
 
 def XMLunescape(txt):
     "Unescape XML entities"
-    txt = replace(txt, "&amp;", "&")
     txt = replace(txt, "&lt;", "<")
     txt = replace(txt, "&gt;", ">")
+    txt = replace(txt, "&amp;", "&")
     return txt
 
 class error:
@@ -509,8 +509,8 @@ class Client(Stream):
             try:
                 self.DEBUG("Attempting to create ssl socket")
                 self._sslObj    = socket.ssl( self._sock, None, None )
-                self._sslIssuer = self._sslSock.issuer()
-                self._sslServer = self._sslSock.server()
+                self._sslIssuer = self._sslObj.issuer()
+                self._sslServer = self._sslObj.server()
             except:
                 self.DEBUG("Socket Error: No SSL Support")
                 raise error("No SSL Support")
