@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.50 2003/12/12 05:31:47 snakeru Exp $
+# $Id: jabber.py,v 1.51 2003/12/12 05:51:40 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -218,17 +218,17 @@ class Connection(xmlstream.Client):
     def setMessageHandler(self, func, type='', chainOutput=False):
         """Back compartibility method"""
         print "WARNING! setMessageHandler(...) method is obsolette, use registerHandler('message',...) instead."
-        return registerHandler('message', func, type, chained=chainOutput)
+        return self.registerHandler('message', func, type, chained=chainOutput)
 
     def setPresenceHandler(self, func, type='', chainOutput=False):
         """Back compartibility method"""
         print "WARNING! setPresenceHandler(...) method is obsolette, use registerHandler('presence',...) instead."
-        return registerHandler('presence', func, type, chained=chainOutput)
+        return self.registerHandler('presence', func, type, chained=chainOutput)
 
     def setIqHandler(self, func, type='', ns=''):
         """Back compartibility method"""
         print "WARNING! setIqHandler(...) method is obsolette, use registerHandler('iq',...) instead."
-        return registerHandler('iq', func, type, ns, chained=chainOutput)
+        return self.registerHandler('iq', func, type, ns)
 
     def header(self):    
         self.DEBUG("stream: sending initial header",DBG_INIT)
