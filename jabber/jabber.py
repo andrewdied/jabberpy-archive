@@ -61,7 +61,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.3 2001/09/22 00:29:29 mallum Exp $
+# $Id: jabber.py,v 1.4 2001/09/24 17:56:56 mallum Exp $
 
 import xmlstream
 import sha
@@ -120,7 +120,7 @@ RS_EXT_PENDING  = 0
 class BaseClient(xmlstream.Client):
     """Forms the base for both Client and Component Classes"""
     def __init__(self, host, port, namespace,
-                 debug=debug, log=log, connection=connection):
+                 debug=False, log=False, connection=xmlstream.TCP):
     
         self.msg_hdlr  = None
         self.pres_hdlr = None
