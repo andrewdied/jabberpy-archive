@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.26 2002/05/21 08:33:20 mallum Exp $
+# $Id: jabber.py,v 1.27 2002/05/29 02:28:38 ewestra Exp $
 
 import xmlstream
 import sha, time
@@ -973,8 +973,9 @@ class Message(Protocol):
         if err:
             err.putData(val)
         else:
-            err = self._node.insertTag('thread').putData(val)
-        err.setAttr('code',str(code))
+			err = self._node.insertTag('error')
+			err.putData(val)
+        err.putAttr('code',str(code))
 
 
     def setTimestamp(self,val):
