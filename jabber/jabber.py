@@ -61,7 +61,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.11 2001/11/19 18:30:43 mallum Exp $
+# $Id: jabber.py,v 1.12 2001/11/20 00:15:32 mallum Exp $
 
 import xmlstream
 import sha, time
@@ -728,7 +728,7 @@ class Protocol:
     def getXPayload(self):
         """Returns the x tags payload as a Node instance"""
         x = self.getXNode()
-        if x and len(x):   ## x actually has some kids 
+        if x and len(x.kids):   ## x actually has some kids 
             return x.kids[0]
         return None
     
