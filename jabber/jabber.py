@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.65 2004/10/07 09:58:28 snakeru Exp $
+# $Id: jabber.py,v 1.66 2004/10/07 10:04:01 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -126,6 +126,8 @@ NS_XENCRYPTED = "jabber:x:encrypted" # JEP-0027
 NS_XSIGNED    = "jabber:x:signed" # JEP-0027
 NS_P_MUC      = _NS_PROTOCOL + "/muc" # JEP-0045
 NS_P_MUC_ADMIN = NS_P_MUC + "#admin" # JEP-0045
+NS_P_MUC_OWNER = NS_P_MUC + "#owner" # JEP-0045
+NS_P_MUC_USER  = NS_P_MUC + "#user" # JEP-0045
 NS_VCARD      = "vcard-temp" # JEP-0054
 
 
