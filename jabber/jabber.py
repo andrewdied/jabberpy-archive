@@ -62,13 +62,13 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.18 2002/01/11 00:40:43 mallum Exp $
+# $Id: jabber.py,v 1.19 2002/01/11 16:52:14 mallum Exp $
 
 import xmlstream
 import sha, time
 from string import split,find,replace
 
-VERSION = 0.2
+VERSION = 0.3
 
 False = 0;
 True  = 1;
@@ -334,9 +334,11 @@ class Connection(xmlstream.Client):
 class Client(Connection):
     """Class for managing a connection to a jabber server.
     Inherits from the xmlstream Client class"""    
-    def __init__(self, host, port=5222, debug=False, log=False):
+    def __init__(self, host, port=5222, debug=False, log=False,
+                 connection=xmlstream.TCP ):
     
-        Connection.__init__(self, host, port,'jabber:client', debug, log)
+        Connection.__init__(self, host, port,'jabber:client', debug, log,
+                            connection=connection)
         
         self._roster = Roster()
         self._agents = {}
