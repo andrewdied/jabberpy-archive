@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.44 2003/11/24 07:01:51 snakeru Exp $
+# $Id: jabber.py,v 1.45 2003/11/29 05:46:45 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -265,6 +265,7 @@ class Connection(xmlstream.Client):
         stanza=self.handlers[name][type](node=stanza)
 
         typ=stanza.getType()
+        if not typ: typ=''
         try:
             ns=stanza.getQuery()
             if not ns: ns=''
