@@ -62,7 +62,7 @@ An example of usage for a simple client would be ( only psuedo code !)
 
 """
 
-# $Id: jabber.py,v 1.46 2003/11/30 15:49:05 snakeru Exp $
+# $Id: jabber.py,v 1.47 2003/12/01 19:09:26 snakeru Exp $
 
 import xmlstream
 import sha, time
@@ -1314,7 +1314,7 @@ class JID:
     def __init__(self, jid='', node='', domain='', resource=''):
         if jid:
             if jid.find('@') == -1:
-                self.node = None
+                self.node = ''
             else:
                 bits = jid.split('@', 1)
                 self.node = bits[0]
@@ -1322,7 +1322,7 @@ class JID:
                 
             if jid.find('/') == -1:
                 self.domain = jid
-                self.resource = None
+                self.resource = ''
             else:
                 self.domain, self.resource = jid.split('/', 1) 
         else:
