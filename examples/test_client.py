@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-# $Id: test_client.py,v 1.4 2001/09/08 17:09:39 mallum Exp $
+# $Id: test_client.py,v 1.5 2001/09/22 00:29:04 mallum Exp $
 
 # You may need to change the above line to point at
 # python rather than python2 depending on your os/distro
@@ -45,13 +45,11 @@ def doCmd(con,txt):
             p = jabber.Presence()
             MyStatus = ' '.join(cmd[1:])
             p.setStatus(MyStatus)
-            p.setShow(MyShow)
             con.send(p)
         elif cmd[0] == '/show':
             p = jabber.Presence()
             MyShow = ' '.join(cmd[1:])
             p.setShow(MyShow)
-            p.setStatus(MyStatus)
             con.send(p)
         elif cmd[0] == '/subscribe':
             to = cmd[1]
