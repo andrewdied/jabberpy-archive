@@ -28,7 +28,7 @@ case.
 
 """
 
-# $Id: xmlstream.py,v 1.37 2003/11/29 06:23:36 snakeru Exp $
+# $Id: xmlstream.py,v 1.38 2003/12/01 19:09:26 snakeru Exp $
 
 import time, sys, re, socket
 from select import select
@@ -86,6 +86,7 @@ class Node:
             if type(node)<>type(self): node=NodeBuilder(node).getDom()
             self.name,self.namespace,self.attrs,self.data,self.kids,self.parent = \
                 node.name,node.namespace,node.attrs,node.data,node.kids,node.parent
+            return
         else:
             self.name,self.namespace,self.attrs,self.data,self.kids,self.parent = 'tag','',{},[],[],None
 
