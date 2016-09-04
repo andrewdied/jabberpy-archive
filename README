@@ -1,5 +1,27 @@
 jabberpy  0.3 README Matthew Allum <breakfast@10.am>
 
+Pre-Introduction
+----------------
+This is a git-converted repository of the jabberpy cvs repository. Nothing
+has been changed except for this pre-introduction. Fork away.
+
+For the curious, this is how I converted it.
+
+mkdir tmp; cd tmp
+rsync -av rsync://jabberpy.cvs.sourceforge.net/cvsroot/jabberpy/\* cvs
+# build or install http://www.catb.org/esr/cvs-fast-export/
+cd cvs
+find . | cvs-fast-export > jabberpy.stream.fi
+cd ..
+git init jabberpy-archive
+cd jabberpy-archive
+git fast-import < ../cvs/jabberpy.stream.fi
+git reset --hard # restores "deleted" files
+# create github repo
+git remote add origin git@github.com:<user>/<repo>.git
+git push -u origin master
+
+
 Introduction
 -------------
 jabber.py is a Python module for the jabber instant messaging
